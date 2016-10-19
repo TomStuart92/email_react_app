@@ -1,0 +1,36 @@
+
+.demo-card-wide.mdl-card {
+  width: 512px;
+}
+.demo-card-wide > .mdl-card__title {
+  color: #fff;
+  height: 176px;
+  background: url('https://getmdl.io/assets/demos/welcome_card.jpg') center / cover;
+}
+.demo-card-wide > .mdl-card__menu {
+  color: #fff;
+}
+
+.mdl-data-table {
+  width: 100%;
+}
+
+.mdl-checkbox {
+  float: left;
+}
+
+.from {
+  width: 15%;
+}
+
+.body {
+  width: 60%;
+}
+
+.subject {
+  width: 15%;
+}
+
+.date {
+  width: 10%;
+}
