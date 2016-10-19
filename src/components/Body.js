@@ -23,13 +23,13 @@ class Body extends React.Component {
             <div className="mdl-grid">
                 <div className="mdl-cell mdl-cell--2-col"></div>
                 <div className="mdl-cell mdl-cell--8-col">
-                  <Table emails="hello"/>
+                  <Table emails={this.props.emails}/>
                 </div>
                 <div className="mdl-cell mdl-cell--2-col"></div>
               </div>
             </div>
         </main>
-        <Footer/>
+        
       </div>
     )
   }

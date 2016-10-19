@@ -4,7 +4,7 @@ import Email from './Email.js'
 class Table extends React.Component {
   render(){
     return(
-      <table className="mdl-data-table mdl-js-data-table mdl-data-table--selectable mdl-shadow--2dp">
+      <table className="mdl-data-table mdl-js-data-table  mdl-shadow--2dp">
         <thead>
           <tr>
             <th className="mdl-data-table__cell--non-numeric date">Date Sent</th>
@@ -14,10 +14,7 @@ class Table extends React.Component {
           </tr>
         </thead>
         <tbody>
-
-          <Email body="Hello World This is my first ever email!" from="Tom Stuart" subject="Hello World" date="01/01/2000"/>
-          <Email body="Hello World This is my first ever email!" from="Tom Stuart" subject="Hello World" date="01/01/2000"/>
-          <Email body="Hello World This is my first ever email!" from="Tom Stuart" subject="Hello World" date="01/01/2000"/>
+          {Object.keys(this.props.emails).map( key => <Email key={key} body={this.props.emails[key]["body"]} from={this.props.emails[key]["from"]} subject={this.props.emails[key]["subject"]} date={this.props.emails[key]["date"]}/>)}
         </tbody>
       </table>
     )
