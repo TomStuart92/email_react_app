@@ -6,30 +6,61 @@ import base from '../base';
 class App extends React.Component {
   constructor(){
     super();
-    this.loadSamples = this.loadSamples.bind(this);
+    this.sendEmail = this.sendEmail.bind(this);
     this.state = {
-      emails: {}
+      inbox: {},
+      sent: {}
     };
   }
+
   render(){
     return(
-      <Body emails={this.state.emails}/>
+      <Body inbox={this.state.inbox}
+            sent={this.state.sent}
+            id={this.props.params.emailID}
+            pathname={this.props.pathname}
+            sendEmail = {this.sendEmail}/>
     )
   }
-  loadSamples(){
-   this.setState({
-     emails: {one: {subject: "Hello World", date: "01/01/2001", from: "Tom Stuart", body: "Hello World This is my first ever email!"},
-      two: {subject: "Hello World", date: "01/01/2001", from: "Rosie", body: "Hello World This is my first ever email!"}}
-   });
- }
+
+  sendEmail(email){
+    const sent = {...this.state.sent};
+    var date = new Date;
+    sent[`email-${date}`] = email;
+    this.setState({sent})
+  }
 
   componentWillMount(){
-    this.ref = base.syncState(`emails`
+    this.ref = base.syncState(`inbox`
       ,{
       context: this,
-      state: 'emails'
+      state: 'inbox'
+    });
+    this.ref = base.syncState(`sent`
+      ,{
+      context: this,
+      state: 'sent'
     });
   }
+
+  componentWillUnmount(){
+    base.removeBinding(this.ref);
+    this.ref = base.syncState(`inbox`
+      ,{
+      context: this,
+      state: 'inbox'
+    });
+    this.ref = base.syncState(`sent`
+      ,{
+      context: this,
+      state: 'sent'
+    });
+  }
+
 }
+
+
+
+
 
 export default App;

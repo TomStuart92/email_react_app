@@ -10,6 +10,8 @@ const Root = () => {
     <BrowserRouter>
       <div>
         <Match exactly pattern="/" component={App}/>
+        <Match exactly pattern="/emails/new" component={App}/>
+        <Match pattern="/emails/:emailID" component={App}/>
         <Miss component={NotFound}/>
       </div>
     </BrowserRouter>

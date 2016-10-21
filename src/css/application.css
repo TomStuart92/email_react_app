@@ -1,6 +1,6 @@
 
 .demo-card-wide.mdl-card {
-  width: 512px;
+  width: 100%;
 }
 .demo-card-wide > .mdl-card__title {
   color: #fff;
@@ -9,6 +9,39 @@
 }
 .demo-card-wide > .mdl-card__menu {
   color: #fff;
+}
+
+.right-button{
+  margin-left: 92%;
+}
+
+.new-email{
+  margin-left: 10%;
+  width: 80%;
+  margin-top: 5%;
+  padding: 10px;
+  border: 2px solid #ABA9C3;
+  border-radius: 5px;
+  color: black;
+}
+
+.spacer{
+  height: 75px;
+}
+
+.mdl-textfield {
+  width: 100%;
+}
+
+.page-content{
+  min-height: 1040px;
+}
+
+.mdl-layout__content {
+    display: -webkit-flex;
+	display: flex;
+    -webkit-flex-direction: column;
+	        flex-direction: column;
 }
 
 .mdl-data-table {
